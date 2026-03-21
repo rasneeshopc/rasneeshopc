@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rasneesh CorpSolutions (OPC) Private Limited — Company Secretarial, Legal & Technology Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy: #0B1C3F;
+      --navy-mid: #132a5e;
+      --gold: #C9963A;
+      --gold-light: #E8B96A;
+      --gold-pale: #F5E6C8;
+      --cream: #FAF7F2;
+      --white: #FFFFFF;
+      --slate: #4A5568;
+      --light-slate: #718096;
+      --border: rgba(201,150,58,0.25);
+      --section-bg: #F8F6F1;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVBAR ─────────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(11,28,63,0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo .emblem {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 700; color: var(--navy);
+    }
+    .nav-logo .brand { display: flex; flex-direction: column; }
+    .nav-logo .brand-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: var(--white); letter-spacing: 0.5px; }
+    .nav-logo .brand-sub { font-size: 10px; color: var(--gold-light); letter-spacing: 2px; text-transform: uppercase; }
+
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 13px; letter-spacing: 0.5px; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--navy) !important; font-weight: 600 !important;
+      padding: 10px 22px; border-radius: 6px;
+      transition: opacity 0.3s !important;
+    }
+    .nav-cta:hover { opacity: 0.9; }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: var(--navy);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center;
+      padding: 120px 5% 80px;
+    }
+
+    .hero-pattern {
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(201,150,58,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(201,150,58,0.06) 0%, transparent 40%),
+        linear-gradient(135deg, rgba(201,150,58,0.03) 25%, transparent 25%) 0 0,
+        linear-gradient(225deg, rgba(201,150,58,0.03) 25%, transparent 25%) 0 0;
+      background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    }
+
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(201,150,58,0.05) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(201,150,58,0.05) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content { position: relative; z-index: 2; max-width: 700px; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(201,150,58,0.15); border: 1px solid var(--border);
+      padding: 8px 16px; border-radius: 100px;
+      font-size: 12px; color: var(--gold-light); letter-spacing: 2px; text-transform: uppercase;
+      margin-bottom: 28px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 6vw, 76px);
+      font-weight: 700; line-height: 1.1;
+      color: var(--white);
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+
+    .hero-divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 28px 0;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .hero p {
+      font-size: 17px; line-height: 1.8; color: rgba(255,255,255,0.7);
+      max-width: 540px;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    .hero-actions {
+      display: flex; gap: 16px; margin-top: 40px; flex-wrap: wrap;
+      animation: fadeUp 0.8s 0.4s ease both;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--navy); font-weight: 600; font-size: 15px;
+      padding: 14px 32px; border-radius: 6px; text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(201,150,58,0.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,150,58,0.4); }
+
+    .btn-secondary {
+      border: 1px solid rgba(201,150,58,0.4); color: var(--gold-light);
+      font-size: 15px; padding: 14px 32px; border-radius: 6px;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: rgba(201,150,58,0.1); border-color: var(--gold-light); }
+
+    .hero-stats {
+      position: absolute; right: 5%; bottom: 60px; z-index: 2;
+      display: flex; gap: 40px;
+      animation: fadeUp 0.8s 0.5s ease both;
+    }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 700; color: var(--gold-light); line-height: 1; }
+    .stat-label { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; }
+
+    /* ─── SECTIONS ───────────────────────────────────────── */
+    section { padding: 100px 5%; }
+
+    .section-label {
+      font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+      color: var(--gold); font-weight: 600; margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 50px);
+      font-weight: 700; line-height: 1.15;
+      color: var(--navy); margin-bottom: 20px;
+    }
+
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    .section-desc {
+      font-size: 16px; line-height: 1.8; color: var(--slate);
+      max-width: 540px;
+    }
+
+    /* ─── ABOUT ──────────────────────────────────────────── */
+    .about { background: var(--white); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+    .about-image-wrap {
+      position: relative;
+    }
+    .about-image {
+      width: 100%; aspect-ratio: 4/5; border-radius: 12px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; position: relative;
+    }
+    .about-image-pattern {
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(45deg, rgba(201,150,58,0.06) 0px, rgba(201,150,58,0.06) 1px, transparent 1px, transparent 20px);
+    }
+    .about-image-content {
+      text-align: center; position: relative; z-index: 2;
+    }
+    .cs-emblem {
+      width: 120px; height: 120px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px; font-weight: 700; color: var(--navy);
+      box-shadow: 0 20px 60px rgba(201,150,58,0.4);
+    }
+    .about-image-content h3 { color: var(--white); font-family: 'Cormorant Garamond', serif; font-size: 28px; }
+    .about-image-content p { color: var(--gold-light); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-top: 6px; }
+
+    .about-gold-card {
+      position: absolute; bottom: -24px; right: -24px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      padding: 20px 24px; border-radius: 10px;
+      box-shadow: 0 20px 40px rgba(201,150,58,0.3);
+    }
+    .about-gold-card .num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; color: var(--navy); line-height: 1; }
+    .about-gold-card .lbl { font-size: 11px; color: var(--navy-mid); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+
+    .credentials { display: flex; flex-direction: column; gap: 16px; margin-top: 40px; }
+    .credential {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 20px;
+      background: var(--cream); border-radius: 8px;
+      border-left: 3px solid var(--gold);
+    }
+    .credential-icon { font-size: 20px; }
+    .credential h4 { font-size: 14px; font-weight: 600; color: var(--navy); }
+    .credential p { font-size: 13px; color: var(--slate); margin-top: 2px; }
+
+    /* ─── SERVICES ───────────────────────────────────────── */
+    .services { background: var(--section-bg); }
+    .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+
+    .service-card {
+      background: var(--white); border-radius: 12px;
+      padding: 36px 30px; position: relative; overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(0,0,0,0.06);
+      cursor: pointer;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 48px rgba(11,28,63,0.12);
+    }
+    .service-card::before {
+      content: ''; position: absolute; inset: 0; opacity: 0;
+      background: linear-gradient(135deg, rgba(201,150,58,0.04), transparent);
+      transition: opacity 0.3s;
+    }
+    .service-card:hover::before { opacity: 1; }
+
+    .service-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px; font-weight: 700;
+      color: rgba(11,28,63,0.06); position: absolute;
+      top: 16px; right: 20px; line-height: 1;
+    }
+
+    .service-icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; margin-bottom: 20px;
+    }
+    .service-card.gold .service-icon { background: linear-gradient(135deg, var(--gold), var(--gold-light)); }
+    .service-card.gold .service-number { color: rgba(201,150,58,0.1); }
+
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif; font-size: 22px;
+      font-weight: 700; color: var(--navy); margin-bottom: 10px;
+    }
+    .service-card p { font-size: 14px; line-height: 1.7; color: var(--slate); }
+
+    .service-list { list-style: none; margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+    .service-list li {
+      font-size: 13px; color: var(--slate);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .service-list li::before { content: ''; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+
+    .service-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 20px; font-size: 13px; font-weight: 600;
+      color: var(--gold); text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .service-link:hover { gap: 10px; }
+
+    /* ─── DSC SECTION ────────────────────────────────────── */
+    .dsc {
+      background: var(--navy);
+      position: relative; overflow: hidden;
+    }
+    .dsc-pattern {
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 70% 50%, rgba(201,150,58,0.1) 0%, transparent 60%);
+    }
+    .dsc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
+
+    .dsc .section-title { color: var(--white); }
+    .dsc .section-desc { color: rgba(255,255,255,0.65); }
+    .dsc .section-label { color: var(--gold-light); }
+
+    .dsc-types { display: flex; flex-direction: column; gap: 16px; margin-top: 36px; }
+    .dsc-type {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(201,150,58,0.2);
+      border-radius: 10px; padding: 20px 24px;
+      display: flex; align-items: center; gap: 16px;
+      transition: background 0.3s;
+    }
+    .dsc-type:hover { background: rgba(201,150,58,0.1); }
+    .dsc-type-badge {
+      padding: 6px 12px; border-radius: 6px;
+      font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap;
+    }
+    .badge-class2 { background: rgba(201,150,58,0.2); color: var(--gold-light); }
+    .badge-class3 { background: rgba(201,150,58,0.35); color: var(--gold-light); }
+    .badge-org { background: rgba(201,150,58,0.5); color: var(--navy); }
+
+    .dsc-type-info h4 { color: var(--white); font-size: 15px; font-weight: 600; }
+    .dsc-type-info p { color: rgba(255,255,255,0.55); font-size: 13px; margin-top: 3px; }
+
+    .dsc-visual {
+      display: flex; align-items: center; justify-content: center;
+    }
+    .dsc-card {
+      width: 340px; height: 210px; border-radius: 16px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, #F0C97A 100%);
+      position: relative; overflow: hidden;
+      box-shadow: 0 30px 80px rgba(201,150,58,0.4);
+    }
+    .dsc-card-pattern {
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(60deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 30px);
+    }
+    .dsc-card-content { position: relative; z-index: 2; padding: 28px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+    .dsc-card-top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .dsc-card-chip { width: 44px; height: 34px; background: rgba(11,28,63,0.25); border-radius: 6px; }
+    .dsc-card-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: var(--navy); }
+    .dsc-card-bottom h4 { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: var(--navy); letter-spacing: 1px; }
+    .dsc-card-bottom p { font-size: 11px; color: rgba(11,28,63,0.7); letter-spacing: 2px; text-transform: uppercase; margin-top: 3px; }
+
+    .dsc-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 60px; position: relative; z-index: 1; }
+    .dsc-step {
+      text-align: center; padding: 28px 20px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(201,150,58,0.15);
+      border-radius: 10px;
+    }
+    .step-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 16px; color: var(--navy);
+      margin: 0 auto 14px;
+    }
+    .dsc-step h4 { color: var(--white); font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+    .dsc-step p { color: rgba(255,255,255,0.5); font-size: 12px; line-height: 1.6; }
+
+    /* ─── LEGAL SECTION ──────────────────────────────────── */
+    .legal { background: var(--white); }
+    .legal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+    .legal-card {
+      border: 1px solid rgba(11,28,63,0.08); border-radius: 12px;
+      padding: 32px 28px; transition: all 0.3s; position: relative; overflow: hidden;
+    }
+    .legal-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .legal-card:hover { box-shadow: 0 16px 40px rgba(11,28,63,0.1); }
+    .legal-card:hover::after { transform: scaleX(1); }
+    .legal-card-icon { font-size: 32px; margin-bottom: 16px; }
+    .legal-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .legal-card p { font-size: 13px; line-height: 1.7; color: var(--slate); }
+
+    /* ─── SOFTWARE SECTION ───────────────────────────────── */
+    .software { background: var(--section-bg); }
+    .tech-stack { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .tech-tag {
+      padding: 6px 14px; border-radius: 100px;
+      background: var(--white); border: 1px solid rgba(11,28,63,0.12);
+      font-size: 12px; font-weight: 500; color: var(--navy);
+    }
+    .software-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
+    .software-cards { display: flex; flex-direction: column; gap: 16px; }
+    .sw-card {
+      background: var(--white); border-radius: 10px; padding: 22px 24px;
+      display: flex; align-items: flex-start; gap: 16px;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .sw-card:hover { transform: translateX(6px); box-shadow: -4px 0 20px rgba(201,150,58,0.15); border-left: 3px solid var(--gold); }
+    .sw-icon { font-size: 24px; }
+    .sw-card h4 { font-size: 15px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+    .sw-card p { font-size: 13px; color: var(--slate); line-height: 1.6; }
+
+    /* ─── PROCESS ────────────────────────────────────────── */
+    .process { background: var(--cream); }
+    .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 60px; position: relative; }
+    .process-steps::before {
+      content: ''; position: absolute;
+      top: 30px; left: 10%; right: 10%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), var(--gold), var(--border), transparent);
+    }
+    .process-step { text-align: center; padding: 0 10px; }
+    .p-circle {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: var(--white); border: 2px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px; font-size: 22px; position: relative; z-index: 2;
+      box-shadow: 0 4px 20px rgba(201,150,58,0.2);
+    }
+    .process-step h4 { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .process-step p { font-size: 12px; color: var(--slate); line-height: 1.6; }
+
+    /* ─── CONTACT ────────────────────────────────────────── */
+    .contact { background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 20px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label { font-size: 12px; font-weight: 600; color: var(--navy); letter-spacing: 0.5px; text-transform: uppercase; }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 12px 16px; border: 1px solid rgba(11,28,63,0.15);
+      border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 14px;
+      color: var(--navy); background: var(--cream);
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,150,58,0.1);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .contact-info { display: flex; flex-direction: column; gap: 32px; }
+    .contact-card {
+      padding: 28px; background: var(--section-bg); border-radius: 12px;
+      border-left: 4px solid var(--gold);
+    }
+    .contact-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 16px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+    .contact-item-icon { font-size: 18px; }
+    .contact-item-text strong { font-size: 13px; font-weight: 600; color: var(--navy); display: block; }
+    .contact-item-text span { font-size: 13px; color: var(--slate); }
+
+    .office-hours { background: var(--navy); border-radius: 12px; padding: 28px; }
+    .office-hours h3 { color: var(--gold-light); font-family: 'Cormorant Garamond', serif; font-size: 20px; margin-bottom: 16px; }
+    .hours-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row span:first-child { color: rgba(255,255,255,0.65); font-size: 13px; }
+    .hours-row span:last-child { color: var(--gold-light); font-size: 13px; font-weight: 600; }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      background: #060E1F; color: rgba(255,255,255,0.6);
+      padding: 60px 5% 30px;
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 50px; }
+    .footer-brand p { font-size: 14px; line-height: 1.8; margin-top: 16px; max-width: 280px; }
+    .footer-col h4 { color: var(--white); font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--gold-light); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-size: 13px; }
+    .footer-compliance { display: flex; gap: 20px; }
+    .compliance-badge { padding: 4px 10px; background: rgba(201,150,58,0.15); border: 1px solid var(--border); border-radius: 4px; font-size: 11px; color: var(--gold-light); letter-spacing: 1px; }
+
+    /* ─── ANIMATIONS ─────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── SCROLLBAR ──────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      nav .nav-links { display: none; }
+      .hero-stats { position: static; margin-top: 40px; display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+      .about-grid, .dsc-grid, .software-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid, .legal-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .process-steps::before { display: none; }
+      .dsc-steps { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .services-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+      .hero-stats { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <div class="emblem">R</div>
+      <div class="brand">
+        <span class="brand-name">Rasneesh CorpSolutions (OPC) Private Limited</span>
+        <span class="brand-sub">CS · Legal · Technology</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#dsc">DSC</a></li>
+      <li><a href="#legal">Legal</a></li>
+      <li><a href="#software">Software</a></li>
+      <li><a href="#contact" class="nav-cta">Get Started</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-pattern"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Registered Company Secretary · MCA Compliant</div>
+      <h1>Compliance.<br/><em>Counsel.</em><br/>Code.</h1>
+      <div class="hero-divider"></div>
+      <p>India's integrated firm for Company Secretarial services, Corporate Legal advisory, Digital Signature Certificates, and full-stack Software development — all under one roof.</p>
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">Explore Services</a>
+        <a href="#contact" class="btn-secondary">Book a Consultation</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">200+</div>
+        <div class="stat-label">Companies Served</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">98%</div>
+        <div class="stat-label">Client Retention</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about reveal" id="about">
+    <div class="about-grid">
+      <div class="about-image-wrap">
+        <div class="about-image">
+          <div class="about-image-pattern"></div>
+          <div class="about-image-content">
+            <div class="cs-emblem">CS</div>
+            <h3>Rashmi Singh</h3>
+            <p>ACS · Company Secretary</p>
+          </div>
+        </div>
+        <div class="about-gold-card">
+          <div class="num">ICSI</div>
+          <div class="lbl">Certified Members</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">A Qualified CS Firm <em>You Can Trust</em></h2>
+        <p class="section-desc">Rasneesh CorpSolutions (OPC) Private Limited is led by a group of qualified and practicing Company Secretary (ACS), registered with the Institute of Company Secretaries of India (ICSI) and Industry hardened Software Team. We combine deep regulatory expertise with legal acumen and modern technology to serve startups, SMEs, and large corporations across India.</p>
+        <div class="credentials">
+          <div class="credential">
+            <div class="credential-icon">🏛️</div>
+            <div>
+              <h4>ICSI Certified Company Secretary</h4>
+              <p>Associate Member of the Institute of Company Secretaries of India (ACS)</p>
+            </div>
+          </div>
+          <div class="credential">
+            <div class="credential-icon">⚖️</div>
+            <div>
+              <h4>MCA & ROC Compliant Practice</h4>
+              <p>Authorized to file with Ministry of Corporate Affairs and all Registrar of Companies offices</p>
+            </div>
+          </div>
+          <div class="credential">
+            <div class="credential-icon">🔏</div>
+            <div>
+              <h4>Licensed DSC Registration Authority</h4>
+              <p>Authorized to issue Class 2 and Class 3 Digital Signature Certificates across India</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES OVERVIEW -->
+  <section class="services reveal" id="services">
+    <div class="services-header">
+      <div>
+        <div class="section-label">What We Offer</div>
+        <h2 class="section-title">Our Core <em>Services</em></h2>
+      </div>
+      <a href="#contact" class="btn-primary">Get a Free Quote →</a>
+    </div>
+    <div class="services-grid">
+      <!-- CS Services -->
+      <div class="service-card gold">
+        <div class="service-number">01</div>
+        <div class="service-icon">🏢</div>
+        <h3>Company Secretarial Services</h3>
+        <p>End-to-end corporate compliance, MCA filings, and company administration handled by a qualified ACS professional.</p>
+        <ul class="service-list">
+          <li>Company incorporation (Pvt Ltd, LLP, OPC, Section 8)</li>
+          <li>ROC annual filings (AOC-4, MGT-7, DIR-3 KYC)</li>
+          <li>Board meeting & AGM management</li>
+          <li>Share transfers, allotments & certificates</li>
+          <li>Statutory registers maintenance</li>
+          <li>Change of directors / registered office</li>
+          <li>ESOP & debenture management</li>
+        </ul>
+        <a href="#contact" class="service-link">Enquire now →</a>
+      </div>
+      <!-- Legal -->
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <div class="service-icon">⚖️</div>
+        <h3>Legal Advisory</h3>
+        <p>Corporate and commercial legal services tailored to startups, MSMEs and established businesses.</p>
+        <ul class="service-list">
+          <li>Drafting MOA, AOA, shareholder agreements</li>
+          <li>NDA, vendor & employment contracts</li>
+          <li>Trademark & IP registration support</li>
+          <li>GST, Income Tax compliance</li>
+          <li>Due diligence & M&A advisory</li>
+        </ul>
+        <a href="#contact" class="service-link">Enquire now →</a>
+      </div>
+      <!-- Software -->
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <div class="service-icon">💻</div>
+        <h3>Software Development</h3>
+        <p>Custom digital solutions — from compliance automation tools to full-scale enterprise web</p>
+        <ul class="service-list">
+          <li>Website design & development</li>
+          <li>Software Consulations</li>
+          <li>Company management portals & dashboards</li>
+        </ul>
+        <a href="#contact" class="service-link">Enquire now →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DSC SECTION -->
+  <section class="dsc reveal" id="dsc">
+    <div class="dsc-pattern"></div>
+    <div class="dsc-grid">
+      <div>
+        <div class="section-label">Digital Signature Certificates</div>
+        <h2 class="section-title">Get Your <em>DSC</em><br/>Issued Fast</h2>
+        <p class="section-desc">We are an authorized registration agent for issuing Digital Signature Certificates required for MCA filings, income tax, GST, e-tendering, and more. Same-day processing available.</p>
+        <div class="dsc-types">
+          <div class="dsc-type">
+            <span class="dsc-type-badge badge-class2">Class 2</span>
+            <div class="dsc-type-info">
+              <h4>Class 2 DSC (Sign + Encrypt)</h4>
+              <p>For income tax, GST, ROC filings — individual & organizational</p>
+            </div>
+          </div>
+          <div class="dsc-type">
+            <span class="dsc-type-badge badge-class3">Class 3</span>
+            <div class="dsc-type-info">
+              <h4>Class 3 DSC (High Assurance)</h4>
+              <p>For e-tendering, e-auctions, MCA21, EPFO & high-security filings</p>
+            </div>
+          </div>
+          <div class="dsc-type">
+            <span class="dsc-type-badge badge-org">Organisation</span>
+            <div class="dsc-type-info">
+              <h4>Organisation DSC</h4>
+              <p>For companies, LLPs and government entities requiring entity-level signing</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dsc-visual">
+        <div>
+          <div class="dsc-card">
+            <div class="dsc-card-pattern"></div>
+            <div class="dsc-card-content">
+              <div class="dsc-card-top">
+                <div class="dsc-card-chip"></div>
+                <div class="dsc-card-logo">DSC</div>
+              </div>
+              <div class="dsc-card-bottom">
+                <h4>DIGITAL SIGNATURE CERT</h4>
+                <p>Class 3 · Signing & Encryption · 2 Years</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dsc-steps">
+      <div class="dsc-step">
+        <div class="step-num">1</div>
+        <h4>Apply Online</h4>
+        <p>Fill our simple application form with PAN, Aadhaar & contact details</p>
+      </div>
+      <div class="dsc-step">
+        <div class="step-num">2</div>
+        <h4>Document Verification</h4>
+        <p>Instant KYC via video call — no physical presence required</p>
+      </div>
+      <div class="dsc-step">
+        <div class="step-num">3</div>
+        <h4>Processing</h4>
+        <p>Certificate issued within 30 minutes to 24 hours after verification</p>
+      </div>
+      <div class="dsc-step">
+        <div class="step-num">4</div>
+        <h4>Download & Use</h4>
+        <p>Receive your DSC via email or USB token delivered at your doorstep</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGAL DETAIL -->
+  <section class="legal reveal" id="legal">
+    <div style="text-align:center; margin-bottom:60px;">
+      <div class="section-label" style="text-align:center;">Legal Practice Areas</div>
+      <h2 class="section-title" style="text-align:center;">Comprehensive <em>Legal Support</em></h2>
+    </div>
+    <div class="legal-grid">
+      <div class="legal-card">
+        <div class="legal-card-icon">📋</div>
+        <h3>Corporate Law</h3>
+        <p>Company formation, restructuring, mergers & acquisitions, shareholders' agreements, and corporate governance advisory under Companies Act, 2013.</p>
+      </div>
+      <div class="legal-card">
+        <div class="legal-card-icon">🤝</div>
+        <h3>Contract Drafting</h3>
+        <p>Professionally drafted NDAs, service agreements, employment contracts, vendor agreements, MoUs and term sheets tailored to your business needs.</p>
+      </div>
+      <div class="legal-card">
+        <div class="legal-card-icon">💡</div>
+        <h3>Intellectual Property</h3>
+        <p>Trademark registration, copyright advisory, brand protection strategy, and IP due diligence for startups and established businesses.</p>
+      </div>
+      <div class="legal-card">
+        <div class="legal-card-icon">📊</div>
+        <h3>Tax & GST Advisory</h3>
+        <p>GST registration, returns, audit, reconciliation, income tax planning, and advisory on direct and indirect tax matters for businesses and HNIs.</p>
+      </div>
+      <div class="legal-card">
+        <div class="legal-card-icon">🔍</div>
+        <h3>Due Diligence</h3>
+        <p>Legal and secretarial due diligence for funding rounds, M&A transactions, and investor onboarding with comprehensive reports.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFTWARE DETAIL -->
+  <section class="software reveal" id="software">
+    <div class="software-grid">
+      <div>
+        <div class="section-label">Technology Services</div>
+        <h2 class="section-title">Software Built for<br/><em>Compliance & Beyond</em></h2>
+        <p class="section-desc">Our in-house development team builds smart, scalable digital solutions with a deep understanding of India's regulatory landscape. We bridge compliance with technology.</p>
+        <div class="tech-stack">
+          <span class="tech-tag">React.js</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">MySQL</span>
+          <span class="tech-tag">MongoDB</span>
+          <span class="tech-tag">Flutter</span>
+          <span class="tech-tag">AWS</span>
+          <span class="tech-tag">REST APIs</span>
+          <span class="tech-tag">WordPress</span>
+          <span class="tech-tag">MCA API Integration</span>
+        </div>
+      </div>
+      <div class="software-cards">
+        <div class="sw-card">
+          <div class="sw-icon">🌐</div>
+          <div>
+            <h4>Business Websites & Portals</h4>
+            <p>Professional websites, landing pages, customer portals and investor dashboards tailored to your brand identity.</p>
+          </div>
+        </div>
+        <div class="sw-card">
+          <div class="sw-icon">🤖</div>
+          <div>
+            <h4>Automation & Integrations</h4>
+            <p>Automate repetitive compliance tasks, reminders and reporting — reducing human error and saving time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process reveal">
+    <div style="text-align:center; margin-bottom:20px;">
+      <div class="section-label" style="text-align:center;">How It Works</div>
+      <h2 class="section-title" style="text-align:center;">Our Simple <em>Process</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="p-circle">📞</div>
+        <h4>Free Consultation</h4>
+        <p>Talk to our CS or legal expert to assess your needs</p>
+      </div>
+      <div class="process-step">
+        <div class="p-circle">📝</div>
+        <h4>Proposal & Quote</h4>
+        <p>Receive a transparent, itemized proposal with timelines</p>
+      </div>
+      <div class="process-step">
+        <div class="p-circle">📁</div>
+        <h4>Documentation</h4>
+        <p>Securely share documents via our encrypted client portal</p>
+      </div>
+      <div class="process-step">
+        <div class="p-circle">⚡</div>
+        <h4>Execution</h4>
+        <p>Our team files, advises, or builds as agreed with updates</p>
+      </div>
+      <div class="process-step">
+        <div class="p-circle">✅</div>
+        <h4>Delivery & Support</h4>
+        <p>Receive deliverables with ongoing compliance reminders</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact reveal" id="contact">
+    <div style="margin-bottom:60px;">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Let's Start Your <em>Compliance Journey</em></h2>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" placeholder="Rahul Sharma" required />
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" placeholder="rahul@company.com" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" placeholder="+91 98765 43210" />
+            </div>
+            <div class="form-group">
+              <label>Company Name</label>
+              <input type="text" placeholder="Your Company Pvt Ltd" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Service Required *</label>
+            <select required>
+              <option value="">— Select a Service —</option>
+              <option>Company Incorporation</option>
+              <option>ROC / MCA Filing</option>
+              <option>Annual Compliance Package</option>
+              <option>Digital Signature Certificate (DSC)</option>
+              <option>Legal Advisory</option>
+              <option>Contract Drafting</option>
+              <option>GST / Tax Advisory</option>
+              <option>Software Development</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell us briefly about your requirement..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="align-self:flex-start; border:none; cursor:pointer; font-family:'DM Sans',sans-serif;">
+            Send Enquiry →
+          </button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <div class="contact-card">
+          <h3>Contact Details</h3>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-text">
+              <strong>Office Address</strong>
+              <span>9B Naba Goranga Basak Road<br/> Kolkata, West Bengal, India, 700080</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-text">
+              <strong>Phone / WhatsApp</strong>
+              <span>+91 98315 27079</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📧</div>
+            <div class="contact-item-text">
+              <strong>Email</strong>
+              <span>rasneeshopc@gmail.com</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-text">
+            </div>
+          </div>
+        </div>
+        <div class="office-hours">
+          <h3>Office Hours</h3>
+          <div class="hours-row"><span>Monday – Friday</span><span>10:00 AM – 7:30 PM</span></div>
+          <div class="hours-row"><span>Saturday</span><span>11:00 AM – 3:00 PM</span></div>
+          <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+          <div class="hours-row"><span>DSC Urgent (WhatsApp)</span><span>Available 24/7</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo" style="margin-bottom:0;">
+          <div class="emblem">R</div>
+          <div class="brand">
+            <span class="brand-name">Rasneesh CorpSolutions (OPC) Private Limited</span>
+            <span class="brand-sub">CS · Legal · Technology</span>
+          </div>
+        </a>
+        <p>Your trusted partner for corporate compliance, legal advisory, digital signatures, and technology solutions — powered by a qualified Company Secretary.</p>
+      </div>
+      <div class="footer-col">
+        <h4>CS Services</h4>
+        <ul>
+          <li><a href="#">Company Incorporation</a></li>
+          <li><a href="#">ROC Annual Filing</a></li>
+          <li><a href="#">Board Meetings</a></li>
+          <li><a href="#">Share Management</a></li>
+          <li><a href="#">LLP Registration</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal & DSC</h4>
+        <ul>
+          <li><a href="#">Contract Drafting</a></li>
+          <li><a href="#">Trademark Registration</a></li>
+          <li><a href="#">GST Advisory</a></li>
+          <li><a href="#">Class 2 DSC</a></li>
+          <li><a href="#">Class 3 DSC</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Technology</h4>
+        <ul>
+          <li><a href="#">Web Development</a></li>
+          <li><a href="#">Software Consultation</a></li>
+          <li><a href="#">Automation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Rasneesh CorpSolutions (OPC) Private Limited. All rights reserved. | Governed by ICSI Code of Conduct</p>
+      <div class="footer-compliance">
+        <span class="compliance-badge">ICSI Member</span>
+        <span class="compliance-badge">MCA Registered</span>
+        <span class="compliance-badge">DSC RA</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Nav active scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      nav.style.background = window.scrollY > 50
+        ? 'rgba(11,28,63,0.99)'
+        : 'rgba(11,28,63,0.97)';
+    });
+
+    // Form submit
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.textContent = '✅ Enquiry Sent! We\'ll contact you shortly.';
+      btn.style.background = 'linear-gradient(135deg, #27AE60, #2ECC71)';
+      btn.disabled = true;
+    }
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+  </script>
+</body>
+</html>
